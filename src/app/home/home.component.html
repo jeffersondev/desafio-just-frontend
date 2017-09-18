@@ -8,9 +8,13 @@
     <li>Se não souber e usar a dica para acertar não perde ponto mas também não ganha ;)</li>
   </ul>
   <p>Escolha um filme para começar o jogo:</p>
-  <ul>
-    <li *ngFor="let filme of filmes">
-
+  <ul class="grid-filmes">
+    <li *ngFor="let filme of filmes; let i = index">
+      <div tabindex="0" class="card" (click)="play(filme)">
+        <img src="{{ i % 2 == 0 ? image : image2 }}" alt="Filme">
+        <span class="filme-titulo">{{ filme.title }}</span>
+        <span class="filme-ano">{{ filme.year }}</span>
+      </div>
     </li>
   </ul>
 </main>

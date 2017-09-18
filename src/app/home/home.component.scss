@@ -7,3 +7,26 @@ main {
   flex-direction: column;
   align-items: center;
 }
+
+.grid-filmes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 200px;
+  height: 350px;
+  border: 5px solid black;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 5px 5px 5px gray;
+  background-color: black;
+  color: white;
+
+  &:hover, &:focus {
+    border-color: red;
+    cursor: pointer;
+  }
+}
