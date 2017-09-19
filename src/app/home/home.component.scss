@@ -1,14 +1,32 @@
 :host {
-  width: 80%;
+  width: 100%;
 }
 
-main {
+main.container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 80%;
+  margin: 0 auto;
+
+  h1 {
+    font-size: 200%;
+    font-weight: bold;
+    color: red;
+    padding: 1em;
+  }
 }
 
-.grid-filmes {
+.rules {
+  list-style: square;
+  margin-bottom: 1em;
+
+  li {
+    padding: 0.2em 0;
+  }
+}
+
+.movie-grid {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -16,16 +34,17 @@ main {
 }
 
 .card {
-  width: 200px;
-  height: 350px;
+  width: 210px;
+  height: 300px;
   border: 5px solid black;
   border-radius: 5px;
   margin: 10px;
   box-shadow: 5px 5px 5px gray;
   background-color: black;
   color: white;
+  overflow: hidden;
 
-  &:hover, &:focus {
+  &:hover {
     border-color: red;
     cursor: pointer;
   }

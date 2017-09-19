@@ -1,19 +1,16 @@
-<main>
-  <h1>Bem vindo ao jogo!</h1>
-  <p>Esse é um jogo de adivinhação do nome do ator/atriz dos filmes da Marvel</p>
-  <p>Regras do jogo:</p>
-  <ul>
+<main class="container">
+  <h1>Regras do jogo</h1>
+  <ul class="rules">
+    <li>Escolha um dos filmes disponíveis abaixo</li>
+    <li>Você terá que adivinhar o nome de 10 personagens do filme escolhido</li>
     <li>Se você acertar o nome ganha 1 ponto :)</li>
     <li>Se você errar o nome perde 1 ponto :(</li>
-    <li>Se não souber e usar a dica para acertar não perde ponto mas também não ganha ;)</li>
+    <li>Se não souber e usar a dica para acertar não perde ponto, mas também não ganha ;)</li>
   </ul>
-  <p>Escolha um filme para começar o jogo:</p>
-  <ul class="grid-filmes">
-    <li *ngFor="let filme of filmes; let i = index">
-      <div tabindex="0" class="card" (click)="play(filme)">
-        <img src="{{ i % 2 == 0 ? image : image2 }}" alt="Filme">
-        <span class="filme-titulo">{{ filme.title }}</span>
-        <span class="filme-ano">{{ filme.year }}</span>
+  <ul class="movie-grid">
+    <li *ngFor="let m of movies; let i = index">
+      <div tabindex="0" class="card" (click)="play(m)">
+        <img src="{{ m.poster.large }}" alt="Poster do filme {{ m.title }}">
       </div>
     </li>
   </ul>

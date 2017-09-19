@@ -10,9 +10,7 @@ import { MovieService } from './../services/movie.service';
 })
 export class HomeComponent implements OnInit {
 
-  filmes: any[] = [];
-  image: string = 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SY1000_CR0,0,674,1000_AL_.jpg';
-  image2: string = 'https://images-na.ssl-images-amazon.com/images/M/MV5BMzA2NDkwODAwM15BMl5BanBnXkFtZTgwODk5MTgzMTE@._V1_SY1000_CR0,0,685,1000_AL_.jpg';
+  movies: any[] = [];
 
   constructor(private movieService: MovieService, private router: Router) { }
 
@@ -22,7 +20,7 @@ export class HomeComponent implements OnInit {
       this.movieService
         .getMovie(id)
         .subscribe(filme => {
-          this.filmes.push(filme);
+          this.movies.push(filme);
         }, erro => {
           console.error(erro);
         });
@@ -30,7 +28,8 @@ export class HomeComponent implements OnInit {
   }
 
   play(movie) {
-    this.router.navigate(['/game', movie.title]);
+    console.log(movie);
+    this.router.navigate(['/game', movie.imdb_id]);
   }
 
 }
