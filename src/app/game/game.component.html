@@ -1,3 +1,26 @@
-<p>
-  game works!
-</p>
+<main class="container">
+  <h1>{{ movie?.title }}</h1>
+
+  <div class="game">
+    <span>Sua pontuação</span>
+    <span>{{ userPoints }}</span>
+    <div class="game-image">
+      <img src="{{ person?.image.poster }}" alt="Personagem do filme">
+    </div>
+
+    <div [ngSwitch]="result">
+      <div class="game-quiz" *ngSwitchCase="''">
+        <form (submit)="respond()">
+          <label for="answer">Qual o nome desse ator/atriz?</label>
+          <input type="text" name="answer" id="answer" [(ngModel)]="answer">
+          <input class="game-button" type="submit" value="Responder">
+          <a class="game-giveup" (click)="hint()">Essa está realmente difícil, eu desisto. Me mostre nome do ator/atriz.</a>
+        </form>
+      </div>
+      <div class="game-quiz" *ngSwitchDefault>
+        <p>{{ result }}</p>
+        <button class="game-button" (click)="nextRound()">Próximo</button>
+      </div>
+    </div>
+  </div>
+</main>

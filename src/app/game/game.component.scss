@@ -1,0 +1,47 @@
+:host {
+  width: 100%;
+}
+
+main.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+
+  h1 {
+    font-size: 200%;
+    font-weight: bold;
+    color: red;
+    padding: 1em;
+  }
+}
+
+.game {
+
+  .game-image {
+    width: 210px;
+    height: 380px;
+    border: 5px solid black;
+    overflow: hidden;
+  }
+
+  .game-button {
+    border: none;
+    color: white;
+    background-color: red;
+    padding: 0.5em 1em;
+
+    &:hover {
+      background-color: black;
+    }
+
+    &:disabled {
+      background-color: gray;
+    }
+  }
+
+  .game-giveup {
+    cursor: pointer;
+  }
+}

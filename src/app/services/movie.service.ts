@@ -13,4 +13,8 @@ export class MovieService {
     return this.http.get(this.URL + '/movie', { params: new HttpParams().set('movie_id', movieId) });
   }
 
+  getPerson(personId: string): Observable<any> {
+    return this.http.get(this.URL + '/person', { params: new HttpParams().set('person_id', personId) });
+  }
+
 }
