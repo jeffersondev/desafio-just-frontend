@@ -8,12 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { MovieService } from './services/movie.service';
 import { GameComponent } from './game/game.component';
+import { ScoreComponent } from './score/score.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    GameComponent
+    GameComponent,
+    ScoreComponent
   ],
   imports: [
     BrowserModule,
