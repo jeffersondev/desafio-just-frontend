@@ -3,7 +3,9 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/switchMap';
 
+import { MAX_ROUNDS } from './../config/app.config';
 import { MovieService } from './../services/movie.service';
+import { ScoreService } from './../services/score.service';
 
 @Component({
   selector: 'app-game',
@@ -21,9 +23,11 @@ export class GameComponent implements OnInit {
   round: number;
 
   constructor(
+    private movieService: MovieService,
     private route: ActivatedRoute,
     private router: Router,
-    private movieService: MovieService) { }
+    private scoreService: ScoreService
+  ) { }
 
   ngOnInit() {
     this.firstRound();
@@ -39,11 +43,16 @@ export class GameComponent implements OnInit {
   }
 
   nextRound() {
-    if (this.round === 10) {
+    if (this.round === MAX_ROUNDS) {
+      this.scoreService.saveScore({
+        movie: this.movie.title,
+        userPoints: this.userPoints,
+        maxPoints: MAX_ROUNDS
+      });
       this.router.navigate(['/score']);
-    } else {
-      this.round++;
+      return;
     }
+    this.round++;
     this.initializeRound();
   }
 
@@ -62,6 +71,7 @@ export class GameComponent implements OnInit {
   }
 
   private firstRound() {
+    this.scoreService.resetScore();
     this.userPoints = 0;
     this.round = 1;
     this.route.paramMap

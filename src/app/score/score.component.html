@@ -1,3 +1,10 @@
-<p>
-  score works!
-</p>
+<main class="container">
+  <h1>Fim</h1>
+
+  <p>Você chegou ao final desse game! Confira abaixo a sua pontuação para o filme {{ score?.movie }}</p>
+
+  <p>Você fez {{ score?.userPoints }} de {{ score?.maxPoints }}</p>
+
+  <button [routerLink]="['/']" class="game-button">Jogar novamente</button>
+
+</main>

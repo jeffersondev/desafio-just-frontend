@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { MOVIES } from './../config/app.movies.config';
+import { MOVIES } from './../config/app.config';
 import { MovieService } from './../services/movie.service';
 @Component({
   selector: 'app-home',
@@ -12,7 +12,10 @@ export class HomeComponent implements OnInit {
 
   movies: any[] = [];
 
-  constructor(private movieService: MovieService, private router: Router) { }
+  constructor(
+    private movieService: MovieService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     MOVIES.forEach(id => {

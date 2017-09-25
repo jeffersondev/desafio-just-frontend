@@ -1,0 +1,14 @@
+.game-button {
+  border: none;
+  color: white;
+  background-color: red;
+  padding: 0.5em 1em;
+
+  &:hover {
+    background-color: black;
+  }
+
+  &:disabled {
+    background-color: gray;
+  }
+}

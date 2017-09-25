@@ -17,3 +17,5 @@ export const MOVIES = [
   "tt2250912",
   "tt3501632",
 ]
+
+export const MAX_ROUNDS: number = 10;
